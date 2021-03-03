@@ -29,10 +29,19 @@ console.log($p1Score, $p2Score);
 // ! Functions
 ////////////////////////////
 
-//Getting a random question
+const chooseAnswer = (event, question) => {
+    console.log(event)
+    if(event.target.innerText === question.answer){
+        console.log("correct");
+    } else {
+    console.log("incorrect");
+  }
+}
+
 const setBoard = (q) => {
+    //Getting a random question
     const randomIndex = Math.floor(Math.random() * q.length);
-    const randomQuestion = q(randomIndex);
+    const randomQuestion = q[randomIndex];
 
     //Update question
     $question.text(randomQuestion.question);
@@ -45,6 +54,10 @@ const setBoard = (q) => {
     //update players scores
     $p1Score.text(state.player1)
     $p2Score.text(state.player2)
+
+    $("li").on("click", (event) => {
+        chooseAnswer(event, randomQuestion)
+    });
 }
 
 //////////////////////////
@@ -65,6 +78,8 @@ $.ajax(COMPLETE_URL)
     questions = data.items.map((q) => q.fields);
     console.log(data);
     console.log(questions);
+
+    setBoard(questions);
     //define render function
     },
     (error) => {
