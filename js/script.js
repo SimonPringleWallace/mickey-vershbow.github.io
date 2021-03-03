@@ -5,7 +5,8 @@
 const state = {
     player1: 0,
     player2: 0,
-    currentQuestion: {} //empty obect
+    currentQuestion: {}, //empty obect
+    which: true
 }
 
 let questions = [];
@@ -30,11 +31,20 @@ console.log($p1Score, $p2Score);
 ////////////////////////////
 
 const chooseAnswer = (event, question) => {
-    console.log(event)
-    if(event.target.innerText === question.answer){
-        console.log("correct");
+    if (event.target.innerText === question.answer){
+        if (state.which) {
+            state.player1++;
+            state.which = !state.which;
+            console.log("correct");
+        }else{
+            state.player2++
+            state.which = !state.which
+        }
+        setBoard(questions);
     } else {
-    console.log("incorrect");
+        console.log("incorrect")
+        setBoard(questions);
+        state.which = !state.which;
   }
 }
 
@@ -55,6 +65,8 @@ const setBoard = (q) => {
     $p1Score.text(state.player1)
     $p2Score.text(state.player2)
 
+    // remove the event listener before adding a new one
+    $("li").off();
     $("li").on("click", (event) => {
         chooseAnswer(event, randomQuestion)
     });
