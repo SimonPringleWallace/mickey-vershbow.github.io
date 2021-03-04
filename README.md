@@ -21,6 +21,11 @@ So far things are set up like this: after a user clicks an answer, points are lo
 
 ### Wireframes
 
+### Screenshots
+
+
+
+
 ### Future Goals
 * Old questions/answers fade out and new questions/answers fade in when the board is reset.
 * Board doesn't reset automatically; instead, the correct answer to current question is shown, and the board is reset when user clicks a "next question" button. 
