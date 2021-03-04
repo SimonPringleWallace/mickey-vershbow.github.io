@@ -5,7 +5,6 @@
 const state = {
     player1: 0,
     player2: 0,
-    currentQuestion: {}, //empty obect
     which: true
 }
 
@@ -32,11 +31,13 @@ console.log($p1Score, $p2Score);
 ////////////////////////////
 
 const chooseAnswer = (event, question) => {
-    if (event.target.innerText === question.answer){
+    console.log(event.target.textContent);
+    console.log(question.answer);
+    if (event.target.textContent === question.answer){
+        console.log("correct");
         if (state.which) {
             state.player1++;
             state.which = !state.which;
-            console.log("correct");
         }else{
             state.player2++
             state.which = !state.which
@@ -47,7 +48,7 @@ const chooseAnswer = (event, question) => {
         setBoard(questions);
         state.which = !state.which;
   }
-}
+};
 
 const setBoard = (q) => {
     //Getting a random question
@@ -94,4 +95,3 @@ $.ajax(COMPLETE_URL)
         console.log("bad request", error)
     }
   );
-// }
