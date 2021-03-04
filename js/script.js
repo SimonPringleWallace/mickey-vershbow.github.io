@@ -82,12 +82,8 @@ const setBoard = (q) => {
 }
 
 // Start a new game
-const setNewBoard = (event, question) => {
-    setBoard();
-    $p1Score === 0;
-    $p2Score === 0;
 
-}
+
 
 
 
