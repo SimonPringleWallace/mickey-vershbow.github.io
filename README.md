@@ -33,6 +33,6 @@ So far things are set up like this: after a user clicks an answer, points are lo
 
 1. How do I refactor the "setBoard" function as something that only runs when the "next" button is clicked? 
 2. How do I approach creating a function for restarting the game entirely? I wanted to include this as an option in dropdown menu. The only difference between resetting the board and restarting the game would be setting the player scores back to zero.
-3. How do I approach fading the old questions/answers out, and fading the new ones in?
+3. How do I approach fading the old questions/answers out, and fading the new ones in? Something like ```var timeoutID = scope.setTimeout(function[, delay]);```
 
 
