@@ -33,36 +33,22 @@
         </sl-dropdown>
       </div>
 
-      <script>
-        const container = document.querySelector('.dropdown-menu');
-        const restart = container.querySelector('sl-menu-item[value="restart"]');
-        const reading = container.querySelector('sl-menu-item[value="reading"]');
-        const action = container.querySelector('sl-menu-item[value="action"]');
+      <div id="question">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus ad tenetur ipsum, expedita quibusdam quasi non deserunt voluptas, ipsa sequi cum odio molestiae harum totam dolores! Quidem sint earum tenetur.</div>
+      <div id="answer">
+          <ul>
+              <li id="a">Answer A</li>
+              <li id="b">Answer B</li>
+              <li id="c">Answer C</li>
+              <li id="d">Answer D</li>
+              <li id="e">Answer E</li>
+            </ul>
+        </div>
+        <div id="correct-answer">
+            <p>[answer text]</p>
+        </div>
 
-        restart.addEventListener('click', (setNewBoard) => console.log('game restarted'));
-        reading.addEventListener('click', () => console.log('extracurricular reading links'));
-        action.addEventListener('click', () => console.log('links to things you can do'));
-      </script>
+        <sl-button id="nextQuestion">Next Question</sl-button>
 
-
-
-<!--
-      <sl-button id="new-game">Start New Game</sl-button> -->
-
-
-    <div id="question">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus ad tenetur ipsum, expedita quibusdam quasi non deserunt voluptas, ipsa sequi cum odio molestiae harum totam dolores! Quidem sint earum tenetur.</div>
-    <div id="answer">
-        <ul>
-            <li id="a">Answer A</li>
-            <li id="b">Answer B</li>
-            <li id="c">Answer C</li>
-            <li id="d">Answer D</li>
-            <li id="e">Answer E</li>
-        </ul>
-    </div>
-    <!-- <div id="correct-answer">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, dolor unde odio ullam ab doloremque dignissimos voluptatibus, itaque, nisi possimus voluptatum exercitationem et aut cumque. Dignissimos aut cumque quas itaque!</p>
-    </div> -->
     <div id="scores">
         <div id="player1">
             <h3>Player 1</h3>
