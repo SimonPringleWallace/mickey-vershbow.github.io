@@ -22,6 +22,7 @@ const $d = $("#d");
 const $e = $("#e");
 const $p1Score = $("#player1 h4");
 const $p2Score = $("#player2 h4");
+const $correctAnswer = $("#correct-answer")
 
 
 console.log($p1Score, $p2Score);
@@ -31,10 +32,10 @@ console.log($p1Score, $p2Score);
 ////////////////////////////
 
 const chooseAnswer = (event, question) => {
-    console.log(event.target.textContent);
-    console.log(question.answer);
     if (event.target.textContent === question.answer){
-        console.log("correct");
+        //! how to make this appear in html?
+        console.log("Correct! The answer is " + question.answer);
+        highlightCorrectAnswer();
         if (state.which) {
             state.player1++;
             state.which = !state.which;
@@ -45,11 +46,14 @@ const chooseAnswer = (event, question) => {
         setBoard(questions);
     } else {
         console.log("incorrect")
+        highlightIncorrectAnswer();
         setBoard(questions);
         state.which = !state.which;
   }
+//! how to display correct answer?
 };
 
+//! how to I setTimeout for this function? Also a fade-out/in for the question and answer text?
 const setBoard = (q) => {
     //Getting a random question
     const randomIndex = Math.floor(Math.random() * q.length);
@@ -67,12 +71,45 @@ const setBoard = (q) => {
     $p1Score.text(state.player1)
     $p2Score.text(state.player2)
 
-    // remove the event listener before adding a new one
+    // ANSWERS event listener; remove the previous event listener before adding a new one so they don't accumulate
     $("li").off();
     $("li").on("click", (event) => {
         chooseAnswer(event, randomQuestion)
+        //New Game event listener
+        $("#new-game").off();
+        $("#new-game").on("click", setNewBoard);
     });
 }
+
+// Start a new game
+const setNewBoard = (event, question) => {
+    setBoard();
+    $p1Score === 0;
+    $p2Score === 0;
+
+}
+
+
+
+
+// turn player buttons red or green depending on whether they got the right answer
+//! how do I reset the color buttons? Include in setBoard function?
+const highlightCorrectAnswer = () => {
+    if(state.which){
+        document.querySelector("#player1").style.backgroundColor = "green";
+    } if(!state.which){
+        document.querySelector("#player2").style.backgroundColor = "green";
+    }
+}
+
+const highlightIncorrectAnswer = () => {
+    if(state.which){
+        document.querySelector("#player1").style.backgroundColor = "red";
+    } if(!state.which){
+        document.querySelector("#player2").style.backgroundColor = "red";
+    }
+}
+
 
 //////////////////////////
 // ! Main App Logic

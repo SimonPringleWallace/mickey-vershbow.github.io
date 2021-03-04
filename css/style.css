@@ -1,44 +1,64 @@
-body {
-    background-color: mediumaquamarine;
+
+/*******************/
+/* FONTS */
+/*******************/
+
+/* font-family: 'Inconsolata', monospace;
+font-family: 'Inknut Antiqua', serif;
+font-family: 'Space Grotesk', sans-serif; */
+
+
+* {
+    font-family: 'Inconsolata', monospace;
 }
 
-/* **********************************
-** HEADING
-********************************** */
+/*******************/
+/* BODY */
+/*******************/
+
+body {
+    background-color: aquamarine;
+}
+
+/*******************/
+/* HEADER */
+/*******************/
 
 h1 {
     text-align: center;
     color: blueviolet;
 }
 
-/* **********************************
-** QUESTION
-********************************** */
+/*******************/
+/* QUESTION */
+/*******************/
 
 #question {
     width: 70%;
-    padding: 30px;
-    border: 3px solid blueviolet;
-    background-color: mediumaquamarine
+    padding: 50px;
+    border: 3px solid grey;
+    background-color: blueviolet;
     color: white;
-    font-size: 28px;
+    font-weight: bolder;
+    font-size: 25px;
+    /* text-transform: uppercase; */
     margin: 10px auto;
+    text-align: center;
 }
 
-/* **********************************
-** ANSWER
-********************************** */
+/*******************/
+/* ANSWERS */
+/*******************/
 
 #answer {
     width: 50%;
     height: 90%;
     margin: 10px auto;
-    color: white;
-    background-color: blueviolet;
+    text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 #answer ul {
@@ -49,20 +69,20 @@ h1 {
     width: 100%;
 }
 
+/* is there a way to center the text inside the border? */
 #answer ul li {
     width: 40%;
-    height: 40px;
-    background-color: grey;
-    padding-top: 15px;
-    text-align: center;
+    background-color: gold;
+    border: 3px solid grey;
     margin: 5px;
+    text-align: center;
+    padding: 25px 10px 25px 10px;
     font-weight: bolder;
 }
 
-
-/* **********************************
-** ScoreBoard
-********************************** */
+/*******************/
+/* SCOREBOARD */
+/*******************/
 
 #scores {
     display: flex;
@@ -78,3 +98,12 @@ h1 {
     margin: 5px;
     text-align: center;
 };
+
+
+/*******************/
+/* Dropdown Menu */
+/*******************/
+
+#options {
+    
+}
